@@ -52,8 +52,11 @@ export const FormEditCategory = () => {
     }
   };
   useEffect(() => {
-    fetchCategory();
-  }, []);
+    if (token) {
+      fetchCategory();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
 
   const onsubmit = async (data: FormProps) => {
     try {

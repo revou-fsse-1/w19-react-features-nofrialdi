@@ -98,7 +98,7 @@ const ListCategory = () => {
         </div> */}
       </div>
 
-      <div className="mt-5 mx-4 overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+      <div className="my-5 mx-4 overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
         <table className="  min-w-full divide-y divide-gray-200 dark:divide-gray-700">
           <thead className="bg-gray-50 dark:bg-gray-800">
             <tr>
