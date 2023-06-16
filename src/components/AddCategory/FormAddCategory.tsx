@@ -34,9 +34,13 @@ export const FormAddCategory = () => {
   });
 
   const onsubmit = async (data: FormProps) => {
-    await axios.post("https://mock-api.arikmpt.com/api/category/create", { name: data.name, is_active: data.status === "Active" ? true : false }, { headers: { Authorization: `Bearer ${token}` } });
-    navigate("/category");
-    console.log(data);
+    try {
+      await axios.post("https://mock-api.arikmpt.com/api/category/create", { name: data.name, is_active: data.status === "Active" ? true : false }, { headers: { Authorization: `Bearer ${token}` } });
+      navigate("/category");
+      // console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

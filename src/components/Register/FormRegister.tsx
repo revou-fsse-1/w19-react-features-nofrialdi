@@ -30,9 +30,13 @@ export const FormRegister = () => {
   });
 
   const onsubmit = async (data: FormProps) => {
-    await axios.post("https://mock-api.arikmpt.com/api/user/register", { name: data.name, email: data.email, password: data.password });
-    navigate("/login");
-    console.log(data);
+    try {
+      await axios.post("https://mock-api.arikmpt.com/api/user/register", { name: data.name, email: data.email, password: data.password });
+      navigate("/login");
+      // console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>
@@ -48,7 +52,11 @@ export const FormRegister = () => {
 
           <div>
             <FormControl fullWidth>
-              <Controller name="email" control={control} render={({ field }) => <TextField value={field.value} onChange={field.onChange} variant="outlined" label="Email" helperText={errors?.email?.message} error={!!errors?.email} />} />
+              <Controller
+                name="email"
+                control={control}
+                render={({ field }) => <TextField value={field.value} onChange={field.onChange} variant="outlined" label="Email" type="email" helperText={errors?.email?.message} error={!!errors?.email} />}
+              />
               {/* <label className="mb-2 inline-block text-sm text-gray-800 sm:text-base">Name</label>
             <input name="name" className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" /> */}
             </FormControl>

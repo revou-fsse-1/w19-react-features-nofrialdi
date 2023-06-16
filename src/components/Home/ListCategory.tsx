@@ -27,8 +27,12 @@ const ListCategory = () => {
   // };
 
   const fatchList = async () => {
-    const response = await axios.get("https://mock-api.arikmpt.com/api/category", { headers: { Authorization: `Bearer ${token}` } });
-    setCategories(response.data.data);
+    try {
+      const response = await axios.get("https://mock-api.arikmpt.com/api/category", { headers: { Authorization: `Bearer ${token}` } });
+      setCategories(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

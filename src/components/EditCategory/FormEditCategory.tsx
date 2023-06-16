@@ -56,8 +56,12 @@ export const FormEditCategory = () => {
   }, []);
 
   const onsubmit = async (data: FormProps) => {
-    await axios.put("https://mock-api.arikmpt.com/api/category/update", { id: data.id, name: data.name, is_active: data.status === "Active" ? true : false }, { headers: { Authorization: `Bearer ${token}` } });
-    navigate("/category");
+    try {
+      await axios.put("https://mock-api.arikmpt.com/api/category/update", { id: data.id, name: data.name, is_active: data.status === "Active" ? true : false }, { headers: { Authorization: `Bearer ${token}` } });
+      navigate("/category");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
