@@ -8,8 +8,8 @@ interface Category {
   is_active: boolean;
 }
 
-export const ListCategory = () => {
-  const token = " eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhjNzFlNjY5LTM4ZGYtNGRkNy04NDYwLTc4ODc2ZmM0NTNjOSIsImlhdCI6MTY4NjgzMzkyNCwiZXhwIjoxNjg2ODU1NTI0fQ.kg49R7kIbMu9nE2x2OMGVt6514C4HQfu72LR42e6LGg";
+const ListCategory = () => {
+  const token = window.localStorage.getItem("token");
   const navigate = useNavigate();
 
   const [categories, setCategories] = useState<Category[]>([]);
@@ -19,7 +19,7 @@ export const ListCategory = () => {
   };
 
   const handleEdit = (id: string) => () => {
-    navigate(`/category/${id}`);
+    navigate(`/category/edit/${id}`);
   };
 
   const fatchList = async () => {
@@ -144,3 +144,4 @@ export const ListCategory = () => {
     </div>
   );
 };
+export default ListCategory;

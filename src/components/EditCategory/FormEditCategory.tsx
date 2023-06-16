@@ -19,11 +19,11 @@ const schema = yup
   .required();
 
 export const FormEditCategory = () => {
-  const token = " eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhjNzFlNjY5LTM4ZGYtNGRkNy04NDYwLTc4ODc2ZmM0NTNjOSIsImlhdCI6MTY4NjgzMzkyNCwiZXhwIjoxNjg2ODU1NTI0fQ.kg49R7kIbMu9nE2x2OMGVt6514C4HQfu72LR42e6LGg";
+  const token = window.localStorage.getItem("token");
   const navigate = useNavigate();
 
   const handleRedirect = () => {
-    navigate("/listCategory");
+    navigate("/category");
   };
 
   const { id } = useParams();
@@ -59,13 +59,13 @@ export const FormEditCategory = () => {
       Authorization: `Bearer ${token}`,
     };
     await axios.put("https://mock-api.arikmpt.com/api/category/update", { id: data.id, name: data.name }, { headers });
-    navigate("/listCategory");
+    navigate("/category");
   };
 
   return (
     <div>
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">Add Category</h2>
+        <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">Edit Category</h2>
       </div>
       <div className="mx-auto max-w-lg rounded-lg border">
         <FormControl fullWidth>
