@@ -92,7 +92,7 @@ export const FormEditCategory = () => {
           </FormControl>
         </div>
 
-        <div className="flex items-center mt-4 gap-x-3">
+        <div className="flex items-center p-8 mt-4 gap-x-3">
           <button
             onClick={handleRedirect}
             className="flex items-center justify-center gap-2 rounded-lg bg-red-500 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-red-300 transition duration-100 hover:bg-red-600 focus-visible:ring active:bg-red-700 md:text-base"
