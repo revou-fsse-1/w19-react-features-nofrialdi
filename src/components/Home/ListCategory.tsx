@@ -22,11 +22,12 @@ const ListCategory = () => {
     navigate(`/category/edit/${id}`);
   };
 
+  // const handledetail = (id: string) => () => {
+  //   navigate(`/category/view/${id}`);
+  // };
+
   const fatchList = async () => {
-    const headers = {
-      Authorization: `Bearer ${token}`,
-    };
-    const response = await axios.get("https://mock-api.arikmpt.com/api/category", { headers });
+    const response = await axios.get("https://mock-api.arikmpt.com/api/category", { headers: { Authorization: `Bearer ${token}` } });
     setCategories(response.data.data);
   };
 
@@ -36,10 +37,11 @@ const ListCategory = () => {
 
   const deleteCategory = (id: string) => async () => {
     try {
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-      await axios.delete(`https://mock-api.arikmpt.com/api/category/${id}`, { headers });
+      await axios.delete(`https://mock-api.arikmpt.com/api/category/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       fatchList();
     } catch (error) {
       console.log(error);
@@ -64,7 +66,7 @@ const ListCategory = () => {
           </button>
         </div>
 
-        <div className="relative flex items-center mt-4 md:mt-0">
+        {/* <div className="relative flex items-center mt-4 md:mt-0">
           <span className="absolute">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5 mx-3 text-gray-400 dark:text-gray-600">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -77,7 +79,7 @@ const ListCategory = () => {
             placeholder="Search"
             className="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
           />
-        </div>
+        </div> */}
       </div>
 
       <div className="mt-5 mx-4 overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
@@ -125,6 +127,16 @@ const ListCategory = () => {
                     <span>Edit</span>
                   </button>
 
+                  {/* <button
+                    onClick={handledetail(category.id)}
+                    className="  flex items-center justify-center w-1/2 px-1 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600"
+                  >
+                    <svg style={{ fill: "#ffffff" }} xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                      <path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z" />
+                    </svg>
+
+                    <span>View</span>
+                  </button> */}
                   <button
                     onClick={deleteCategory(category.id)}
                     className="  flex items-center justify-center w-1/2 px-1 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-red-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-red-600 dark:hover:bg-red-500 dark:bg-red-600"
