@@ -1,6 +1,6 @@
 import { FormControl, TextField } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
@@ -75,9 +75,9 @@ const FormLogin = () => {
         <div className="flex items-center justify-center bg-gray-100 p-4">
           <p className="text-center text-sm text-gray-500">
             Don't have an account?
-            <a href={"/register"} className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">
-              Register
-            </a>
+            <Link to={"/register"}>
+              <a className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">Register</a>
+            </Link>
           </p>
         </div>
       </form>

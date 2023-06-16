@@ -7,10 +7,9 @@ import { AddCategory } from "./components/AddCategory/AddCategory";
 import { EditCategory } from "./components/EditCategory/EditCategory";
 import PrivateLayout from "./Private/PrivateLayout";
 import DefaultLayout from "./Publik/DefaultLayout";
-
 function App() {
   return (
-    <div className="App">
+    <>
       <Routes>
         <Route element={<PrivateLayout />}>
           <Route path="/" index element={<ListCategory />} />
@@ -23,7 +22,7 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Route>
       </Routes>
-    </div>
+    </>
   );
 }
 
