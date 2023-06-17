@@ -4,7 +4,7 @@
 
 ## Link Preview
 
-<https://w19-react-features-nofrialdi-6fkgbvf76-nofrialdi.vercel.app/>
+<https://w19-react-features-nofrialdi.vercel.app/login>
 
 ## How to Install
 
